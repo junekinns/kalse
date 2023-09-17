@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>깔세계산기</title>
+    <script type="text/javascript">
+        function calculateMonthsPassed(startDate, deposit, rent) {
+            const start = new Date(startDate);
+            const end = new Date();
+
+            const months = (end.getFullYear() - start.getFullYear()) * 12;
+            const monthDiff = end.getMonth() - start.getMonth();
+
+            const monthsPassed = months + monthDiff;
+            const result = deposit - (monthsPassed*rent);
+            const resultText = `이사온 지 ${monthsPassed} 달 째 입니다.\n` +
+                `잔액은 ${result} 만원 입니다.`;
+            alert(resultText);
+        }
+    </script>
+</head>
+
+<body>
+<h1>엑스포 깔세계산기</h1>
+<form>
+    이사온날: <input type="date" id="start" value="2022-10-09"><br>
+    선납입금: <input type="number" id="deposit" value=3000>만원<br>
+    월세: <input type="number" id="rent" value=60>만원<br>
+    <br>
+    <input type="button" value="잔액 계산!" onclick="calculateMonthsPassed(document.getElementById('start').value, document.getElementById('deposit').value, document.getElementById('rent').value)"><br>
+    <br>
+</form>
+
+</body>
+</html>
